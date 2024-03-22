@@ -33,17 +33,22 @@
             phimToolStripMenuItem = new ToolStripMenuItem();
             giờChiếuToolStripMenuItem = new ToolStripMenuItem();
             đơnHàngToolStripMenuItem = new ToolStripMenuItem();
-            đặtVéXemPhimToolStripMenuItem = new ToolStripMenuItem();
+            đặtVéXemPhimStaffToolStripMenuItem = new ToolStripMenuItem();
+            víTiềnToolStripMenuItem = new ToolStripMenuItem();
+            đặtVéXemPhimCustomerToolStripMenuItem = new ToolStripMenuItem();
+            profileCủaTôiToolStripMenuItem = new ToolStripMenuItem();
+            lịchSửĐặtHàngToolStripMenuItem = new ToolStripMenuItem();
+            đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { kháchHàngToolStripMenuItem, phimToolStripMenuItem, giờChiếuToolStripMenuItem, đơnHàngToolStripMenuItem, đặtVéXemPhimToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { kháchHàngToolStripMenuItem, phimToolStripMenuItem, giờChiếuToolStripMenuItem, đơnHàngToolStripMenuItem, đặtVéXemPhimStaffToolStripMenuItem, víTiềnToolStripMenuItem, đặtVéXemPhimCustomerToolStripMenuItem, profileCủaTôiToolStripMenuItem, lịchSửĐặtHàngToolStripMenuItem, đăngXuấtToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1135, 28);
+            menuStrip1.Size = new Size(1328, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -75,18 +80,53 @@
             đơnHàngToolStripMenuItem.Text = "Quản lý đơn hàng";
             đơnHàngToolStripMenuItem.Click += đơnHàngToolStripMenuItem_Click;
             // 
-            // đặtVéXemPhimToolStripMenuItem
+            // đặtVéXemPhimStaffToolStripMenuItem
             // 
-            đặtVéXemPhimToolStripMenuItem.Name = "đặtVéXemPhimToolStripMenuItem";
-            đặtVéXemPhimToolStripMenuItem.Size = new Size(136, 24);
-            đặtVéXemPhimToolStripMenuItem.Text = "Đặt vé xem phim";
-            đặtVéXemPhimToolStripMenuItem.Click += đặtVéXemPhimToolStripMenuItem_Click;
+            đặtVéXemPhimStaffToolStripMenuItem.Name = "đặtVéXemPhimStaffToolStripMenuItem";
+            đặtVéXemPhimStaffToolStripMenuItem.Size = new Size(136, 24);
+            đặtVéXemPhimStaffToolStripMenuItem.Text = "Đặt vé xem phim";
+            đặtVéXemPhimStaffToolStripMenuItem.Click += đặtVéXemPhimStaffToolStripMenuItem_Click;
+            // 
+            // víTiềnToolStripMenuItem
+            // 
+            víTiềnToolStripMenuItem.Name = "víTiềnToolStripMenuItem";
+            víTiềnToolStripMenuItem.Size = new Size(92, 24);
+            víTiềnToolStripMenuItem.Text = "Ví của bạn";
+            víTiềnToolStripMenuItem.Click += víTiềnToolStripMenuItem_Click;
+            // 
+            // đặtVéXemPhimCustomerToolStripMenuItem
+            // 
+            đặtVéXemPhimCustomerToolStripMenuItem.Name = "đặtVéXemPhimCustomerToolStripMenuItem";
+            đặtVéXemPhimCustomerToolStripMenuItem.Size = new Size(136, 24);
+            đặtVéXemPhimCustomerToolStripMenuItem.Text = "Đặt vé xem phim";
+            đặtVéXemPhimCustomerToolStripMenuItem.Click += đặtVéXemPhimCustomerToolStripMenuItem_Click;
+            // 
+            // profileCủaTôiToolStripMenuItem
+            // 
+            profileCủaTôiToolStripMenuItem.Name = "profileCủaTôiToolStripMenuItem";
+            profileCủaTôiToolStripMenuItem.Size = new Size(115, 24);
+            profileCủaTôiToolStripMenuItem.Text = "Profile của tôi";
+            profileCủaTôiToolStripMenuItem.Click += profileCủaTôiToolStripMenuItem_Click;
+            // 
+            // lịchSửĐặtHàngToolStripMenuItem
+            // 
+            lịchSửĐặtHàngToolStripMenuItem.Name = "lịchSửĐặtHàngToolStripMenuItem";
+            lịchSửĐặtHàngToolStripMenuItem.Size = new Size(120, 24);
+            lịchSửĐặtHàngToolStripMenuItem.Text = "Lịch sử mua vé";
+            lịchSửĐặtHàngToolStripMenuItem.Click += lịchSửĐặtHàngToolStripMenuItem_Click;
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            đăngXuấtToolStripMenuItem.Size = new Size(91, 24);
+            đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1135, 557);
+            ClientSize = new Size(1328, 557);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmMain";
@@ -105,6 +145,11 @@
         private ToolStripMenuItem phimToolStripMenuItem;
         private ToolStripMenuItem giờChiếuToolStripMenuItem;
         private ToolStripMenuItem đơnHàngToolStripMenuItem;
-        private ToolStripMenuItem đặtVéXemPhimToolStripMenuItem;
+        private ToolStripMenuItem đặtVéXemPhimStaffToolStripMenuItem;
+        private ToolStripMenuItem víTiềnToolStripMenuItem;
+        private ToolStripMenuItem đặtVéXemPhimCustomerToolStripMenuItem;
+        private ToolStripMenuItem profileCủaTôiToolStripMenuItem;
+        private ToolStripMenuItem lịchSửĐặtHàngToolStripMenuItem;
+        private ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }

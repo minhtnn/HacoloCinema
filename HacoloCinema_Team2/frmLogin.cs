@@ -1,4 +1,5 @@
-﻿using Repositories;
+﻿using HacoloCinema_Team2;
+using Repositories;
 using Repositories.mintnn;
 using System;
 using System.Collections.Generic;
@@ -27,19 +28,21 @@ namespace SaleManagementWinApp
         {
             if (!IsEmpty())
             {
+                frmMain frmMain = new frmMain();
                 var customer = _memberRepository.GetCustomerByPhoneAndPassword(txtPhone.Text, txtPassword.Text);
                 if (customer != null)
                 {
-                    //frmMain frmMain = new frmMain(txtPhone.Text, txtPassword.Text);
+                    frmMain.Customer = customer;
                     MessageBox.Show("Chào mừng tới HacoloCinema", "Login", MessageBoxButtons.OK);
                     this.Hide();
-                    //frmMain.ShowDialog();
+                    frmMain.ShowDialog();
                 }
                 else if (customer == null)
                 {
                     var admin = _memberRepository.GetAdmin();
                     if (admin != null)
                     {
+                        frmMain.Admin = admin;
                         MessageBox.Show("Chào mừng admin", "Login", MessageBoxButtons.OK);
                         this.Hide();
                     }
