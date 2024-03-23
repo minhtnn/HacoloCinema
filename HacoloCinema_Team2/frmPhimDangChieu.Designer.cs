@@ -202,7 +202,7 @@
             // 
             // groupBox6
             // 
-            groupBox6.Controls.Add(button7);
+            groupBox6.Controls.Add(button6);
             groupBox6.Controls.Add(pictureBox6);
             groupBox6.Controls.Add(lblLimitAge6);
             groupBox6.Controls.Add(lblDuration6);
@@ -269,7 +269,7 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(button6);
+            groupBox4.Controls.Add(button4);
             groupBox4.Controls.Add(pictureBox4);
             groupBox4.Controls.Add(lblLimitAge4);
             groupBox4.Controls.Add(lblDuration4);
@@ -336,8 +336,8 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(pictureBox2);
+            groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(lblLimitAge2);
             groupBox2.Controls.Add(lblDuration2);
             groupBox2.Controls.Add(lblGenre2);
@@ -403,8 +403,8 @@
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(button4);
             groupBox7.Controls.Add(pictureBox7);
+            groupBox7.Controls.Add(button7);
             groupBox7.Controls.Add(lblLimitAge7);
             groupBox7.Controls.Add(lblDuration7);
             groupBox7.Controls.Add(lblGenre7);
@@ -470,8 +470,8 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(button3);
             groupBox5.Controls.Add(pictureBox5);
+            groupBox5.Controls.Add(button5);
             groupBox5.Controls.Add(lblLimitAge5);
             groupBox5.Controls.Add(lblDuration5);
             groupBox5.Controls.Add(lblGenre5);
@@ -537,7 +537,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(button2);
+            groupBox3.Controls.Add(button3);
             groupBox3.Controls.Add(pictureBox3);
             groupBox3.Controls.Add(lblLimitAge3);
             groupBox3.Controls.Add(lblDuration3);

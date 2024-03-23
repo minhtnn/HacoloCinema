@@ -49,8 +49,8 @@ namespace HacoloCinema_Team2
                         Label labelGenre = groupBox.Controls.Find("lblGenre" + i, true).FirstOrDefault() as Label;
                         Label labelDuration = groupBox.Controls.Find("lblDuration" + i, true).FirstOrDefault() as Label;
                         Label labelLimitAge = groupBox.Controls.Find("lblLimitAge" + i, true).FirstOrDefault() as Label;
-                        PictureBox pictureBox = groupBox.Controls.Find("pictureBox" + i,true).FirstOrDefault() as PictureBox;
-
+                        PictureBox pictureBox = groupBox.Controls.Find("pictureBox" + i, true).FirstOrDefault() as PictureBox;
+                        Button button = groupBox.Controls.Find("button" + i, true).FirstOrDefault() as Button;
                         Movie movie = list[i - 1];
 
 
@@ -61,8 +61,8 @@ namespace HacoloCinema_Team2
                             labelGenre.Text = genreNames;
                             labelDuration.Text = movie.Duration.ToString();
                             labelLimitAge.Text = movie.LimitAge.ToString();
-                            if(movie.Image != null && movie.Image.Length > 0)
-                {
+                            if (movie.Image != null && movie.Image.Length > 0)
+                            {
                                 using (MemoryStream ms = new MemoryStream(movie.Image))
                                 {
 
@@ -71,7 +71,13 @@ namespace HacoloCinema_Team2
                                     pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                                 }
                             }
-                           
+                            button.Click += (sender, e) =>
+                            {
+
+                                int movieId = movie.MovieId;
+                                OpenMovieDetailsForm(movieId);
+                            };
+
                         }
                     }
                     else
@@ -84,6 +90,11 @@ namespace HacoloCinema_Team2
 
 
         }
+        private void OpenMovieDetailsForm(int movieId)
+        {
+            frmDetailMovie frmDetailMovie = new frmDetailMovie(movieId);
+            frmDetailMovie.ShowDialog();
+        }
 
         private void frmH_Load(object sender, EventArgs e)
         {
@@ -91,6 +102,11 @@ namespace HacoloCinema_Team2
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
