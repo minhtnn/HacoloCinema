@@ -30,7 +30,7 @@ namespace SaleManagementWinApp
             if (!IsEmpty())
             {
                 frmMain frmMain = new frmMain();
-                var customer = _memberRepository.GetCustomerByPhoneAndPassword(txtPhone.Text, txtPassword.Text);
+                var customer = _memberRepository.GetCustomerByPhoneAndPassword(txtPhone.Text.Trim(), txtPassword.Text.Trim());
                 if (customer != null)
                 {
                     frmMain.Customer = customer;

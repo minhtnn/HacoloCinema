@@ -53,7 +53,7 @@ public partial class HacoloCinemaContext : DbContext
     {
         modelBuilder.Entity<Combo>(entity =>
         {
-            entity.HasKey(e => e.ComboId).HasName("PK__Combos__DD42582EF9EEB87D");
+            entity.HasKey(e => e.ComboId).HasName("PK__Combos__DD42582EDE546768");
 
             entity.Property(e => e.ComboId).ValueGeneratedNever();
             entity.Property(e => e.ComboName).HasMaxLength(255);
@@ -62,7 +62,7 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64D84CC5564D");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64D8F61D1EE2");
 
             entity.Property(e => e.CustomerId).ValueGeneratedNever();
             entity.Property(e => e.CustomerName).HasMaxLength(255);
@@ -79,7 +79,7 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<Genre>(entity =>
         {
-            entity.HasKey(e => e.GenreId).HasName("PK__Genres__0385057EE6F65A4E");
+            entity.HasKey(e => e.GenreId).HasName("PK__Genres__0385057E99633729");
 
             entity.Property(e => e.GenreId).ValueGeneratedNever();
             entity.Property(e => e.Description).HasColumnType("text");
@@ -88,7 +88,7 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<Movie>(entity =>
         {
-            entity.HasKey(e => e.MovieId).HasName("PK__Movies__4BD2941A7B2110CF");
+            entity.HasKey(e => e.MovieId).HasName("PK__Movies__4BD2941AD41DD693");
 
             entity.Property(e => e.MovieId).ValueGeneratedNever();
             entity.Property(e => e.Cast).HasColumnType("text");
@@ -104,21 +104,21 @@ public partial class HacoloCinemaContext : DbContext
                     r => r.HasOne<Genre>().WithMany()
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__MovieGenr__Genre__351DDF8C"),
+                        .HasConstraintName("FK__MovieGenr__Genre__60FC61CA"),
                     l => l.HasOne<Movie>().WithMany()
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__MovieGenr__Movie__3429BB53"),
+                        .HasConstraintName("FK__MovieGenr__Movie__60083D91"),
                     j =>
                     {
-                        j.HasKey("MovieId", "GenreId").HasName("PK__MovieGen__BBEAC44D51B02488");
+                        j.HasKey("MovieId", "GenreId").HasName("PK__MovieGen__BBEAC44D0C37AFEA");
                         j.ToTable("MovieGenre");
                     });
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BCF91438B47");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BCFFF09CE97");
 
             entity.Property(e => e.OrderId).ValueGeneratedNever();
             entity.Property(e => e.OrderDate).HasColumnType("datetime");
@@ -126,33 +126,33 @@ public partial class HacoloCinemaContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Orders__Customer__473C8FC7");
+                .HasConstraintName("FK__Orders__Customer__731B1205");
 
             entity.HasOne(d => d.Payment).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.PaymentId)
-                .HasConstraintName("FK__Orders__PaymentI__46486B8E");
+                .HasConstraintName("FK__Orders__PaymentI__7226EDCC");
         });
 
         modelBuilder.Entity<OrderDetailCombo>(entity =>
         {
-            entity.HasKey(e => new { e.OrderId, e.ComboId }).HasName("PK__OrderDet__3E447E4D582A6C67");
+            entity.HasKey(e => new { e.OrderId, e.ComboId }).HasName("PK__OrderDet__3E447E4D654F4A5B");
 
             entity.ToTable("OrderDetailCombo");
 
             entity.HasOne(d => d.Combo).WithMany(p => p.OrderDetailCombos)
                 .HasForeignKey(d => d.ComboId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderDeta__Combo__51BA1E3A");
+                .HasConstraintName("FK__OrderDeta__Combo__7D98A078");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetailCombos)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderDeta__Order__50C5FA01");
+                .HasConstraintName("FK__OrderDeta__Order__7CA47C3F");
         });
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.PaymentId).HasName("PK__Payment__9B556A38DCFFB151");
+            entity.HasKey(e => e.PaymentId).HasName("PK__Payment__9B556A384A78C2CE");
 
             entity.ToTable("Payment");
 
@@ -164,7 +164,7 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<PricingSchedule>(entity =>
         {
-            entity.HasKey(e => e.PricingScheduleId).HasName("PK__PricingS__61C1BC09E3B96543");
+            entity.HasKey(e => e.PricingScheduleId).HasName("PK__PricingS__61C1BC091480389E");
 
             entity.ToTable("PricingSchedule");
 
@@ -175,7 +175,7 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<PromotionalMaterial>(entity =>
         {
-            entity.HasKey(e => e.MaterialId).HasName("PK__Promotio__C5061317A980547D");
+            entity.HasKey(e => e.MaterialId).HasName("PK__Promotio__C5061317B8F3196C");
 
             entity.Property(e => e.MaterialId)
                 .ValueGeneratedNever()
@@ -191,7 +191,7 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<Seat>(entity =>
         {
-            entity.HasKey(e => e.SeatId).HasName("PK__Seats__311713F3938B3FF5");
+            entity.HasKey(e => e.SeatId).HasName("PK__Seats__311713F3AD41A405");
 
             entity.Property(e => e.SeatId).ValueGeneratedNever();
             entity.Property(e => e.SeatPosition)
@@ -201,7 +201,7 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<Showtime>(entity =>
         {
-            entity.HasKey(e => e.ShowtimeId).HasName("PK__Showtime__32D31F207639BF88");
+            entity.HasKey(e => e.ShowtimeId).HasName("PK__Showtime__32D31F20A019E473");
 
             entity.Property(e => e.ShowtimeId).ValueGeneratedNever();
             entity.Property(e => e.PricingScheduleId).HasColumnName("PricingScheduleID");
@@ -209,21 +209,21 @@ public partial class HacoloCinemaContext : DbContext
             entity.HasOne(d => d.Movie).WithMany(p => p.Showtimes)
                 .HasForeignKey(d => d.MovieId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Showtimes__Movie__3DB3258D");
+                .HasConstraintName("FK__Showtimes__Movie__6991A7CB");
 
             entity.HasOne(d => d.PricingSchedule).WithMany(p => p.Showtimes)
                 .HasForeignKey(d => d.PricingScheduleId)
-                .HasConstraintName("FK__Showtimes__Prici__3F9B6DFF");
+                .HasConstraintName("FK__Showtimes__Prici__6B79F03D");
 
             entity.HasOne(d => d.Theater).WithMany(p => p.Showtimes)
                 .HasForeignKey(d => d.TheaterId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Showtimes__Theat__3EA749C6");
+                .HasConstraintName("FK__Showtimes__Theat__6A85CC04");
         });
 
         modelBuilder.Entity<Theater>(entity =>
         {
-            entity.HasKey(e => e.TheaterId).HasName("PK__Theaters__4D68B2191DBDADDC");
+            entity.HasKey(e => e.TheaterId).HasName("PK__Theaters__4D68B2193A4A9CB7");
 
             entity.Property(e => e.TheaterId).ValueGeneratedNever();
             entity.Property(e => e.TheaterName).HasMaxLength(255);
@@ -231,27 +231,27 @@ public partial class HacoloCinemaContext : DbContext
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.TicketId).HasName("PK__Tickets__712CC607B448AF97");
+            entity.HasKey(e => e.TicketId).HasName("PK__Tickets__712CC6077C6ABB3A");
 
             entity.Property(e => e.TicketId).ValueGeneratedNever();
             entity.Property(e => e.TicketPrice).HasColumnType("decimal(10, 0)");
 
             entity.HasOne(d => d.Order).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__Tickets__OrderId__4A18FC72");
+                .HasConstraintName("FK__Tickets__OrderId__75F77EB0");
 
             entity.HasOne(d => d.Seat).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.SeatId)
-                .HasConstraintName("FK__Tickets__SeatId__4C0144E4");
+                .HasConstraintName("FK__Tickets__SeatId__77DFC722");
 
             entity.HasOne(d => d.Showtime).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.ShowtimeId)
-                .HasConstraintName("FK__Tickets__Showtim__4B0D20AB");
+                .HasConstraintName("FK__Tickets__Showtim__76EBA2E9");
         });
 
         modelBuilder.Entity<Wallet>(entity =>
         {
-            entity.HasKey(e => e.WalletId).HasName("PK__Wallet__84D4F90EDE336C21");
+            entity.HasKey(e => e.WalletId).HasName("PK__Wallet__84D4F90EEA3D5198");
 
             entity.ToTable("Wallet");
 
@@ -260,12 +260,12 @@ public partial class HacoloCinemaContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Wallets)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Wallet__Customer__54968AE5");
+                .HasConstraintName("FK__Wallet__Customer__00750D23");
         });
 
         modelBuilder.Entity<WalletTransaction>(entity =>
         {
-            entity.HasKey(e => e.WalletTransactionId).HasName("PK__WalletTr__7184AEEFA979C319");
+            entity.HasKey(e => e.WalletTransactionId).HasName("PK__WalletTr__7184AEEFE36A0841");
 
             entity.Property(e => e.WalletTransactionId).ValueGeneratedNever();
             entity.Property(e => e.TransactionAmount).HasColumnType("decimal(10, 0)");
@@ -273,7 +273,7 @@ public partial class HacoloCinemaContext : DbContext
 
             entity.HasOne(d => d.Wallet).WithMany(p => p.WalletTransactions)
                 .HasForeignKey(d => d.WalletId)
-                .HasConstraintName("FK__WalletTra__Walle__5772F790");
+                .HasConstraintName("FK__WalletTra__Walle__035179CE");
         });
 
         OnModelCreatingPartial(modelBuilder);
