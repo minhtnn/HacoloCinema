@@ -29,7 +29,7 @@ namespace HacoloCinema_Team2
             DateTime dateTime = dtpReleaseDay.Value;
             var movie = new Movie
             {
-                MovieId = int.Parse(txtMovieId.Text),
+                MovieId = movieRepo.GetLargestId() + 1,
                 MovieName = txtMovieName.Text,
                 ReleaseDay = new DateOnly(dateTime.Year, dateTime.Month, dateTime.Day),
                 Cast = txtCast.Text,
@@ -45,28 +45,17 @@ namespace HacoloCinema_Team2
                 MessageBox.Show("All fields are required", "Error");
                 return;
             }
-            if (movieRepo.ExistById(int.Parse(txtMovieId.Text)))
-            {
-                MessageBox.Show("The ID existed in the system", "Error");
-                return;
-            }
+            
             else
             {
                 movieRepo.SaveMovie(movie);
-                if (movie != null)
-                {
-                    MessageBox.Show(GetSelectedGenres().ToString(), "cc");
-                }
+                
                 foreach (var genre in GetSelectedGenres())
                 {
                     if (movieRepo.ExistById(movie.MovieId))
                     {
                         //genreRepo.AddMovieToGenres(genre, movie);
                         movieRepo.AddGenreToMovie(genre, movie);
-                        foreach (var movie1 in genre.Movies)
-                        {
-                            MessageBox.Show(movie1.MovieId.ToString());
-                        }
                     }
                     else
                     {
@@ -162,7 +151,7 @@ namespace HacoloCinema_Team2
 
         private bool checkNullInput()
         {
-            if (txtMovieId.Text.Trim() == "" || txtMovieName.Text.Trim() == ""
+            if (txtMovieName.Text.Trim() == ""
                 || txtCast.Text.Trim() == "" || txtDirector.Text.Trim() == ""
                 || txtLimitAge.Text.Trim() == "" || txtDuration.Text.Trim() == ""
                 || txtDescription.Text.Trim() == "" || ptxImage.Image == null

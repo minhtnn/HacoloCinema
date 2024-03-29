@@ -1,6 +1,5 @@
 ﻿using BusinessObjects;
 using BussinessObject.Models;
-using Repositories;
 using Repositories.mintnn;
 using System;
 using System.Collections.Generic;
@@ -18,6 +17,7 @@ namespace SaleManagementWinApp
     public partial class frmRegister : Form
     {
         private ICustomerRepository _memberRepository = new CustomerRepository();
+        private IWalletRepository _walletRepository = new WalletRepository();
         public frmRegister()
         {
             InitializeComponent();
@@ -25,10 +25,10 @@ namespace SaleManagementWinApp
         }   
         private void LoadInformation()
         {
-            txtCustomerId.Text = _memberRepository.GetNewCustomerId().ToString();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
         private bool IsEmptyInput()
@@ -41,11 +41,11 @@ namespace SaleManagementWinApp
         {
             if (!IsEmptyInput())
             {
-                if (Validation.IsMail(txtCustomerEmail.Text))
+                if (Validation.IsMail(txtCustomerEmail.Text) && !_memberRepository.IsPhoneExist(txtPhoneNumber.Text))
                 {
                     Customer customer = new Customer()
                     {
-                        CustomerId = int.Parse(txtCustomerId.Text),
+                        CustomerId = _memberRepository.GetNewCustomerId(),
                         CustomerName = txtCustomerName.Text,
                         Email = txtCustomerEmail.Text,
                         Password = txtCustomerPassword.Text,
@@ -54,6 +54,7 @@ namespace SaleManagementWinApp
                     var add = _memberRepository.AddCustomer(customer);
                     if (add)
                     {
+                        _walletRepository.CreateWallet(customer.CustomerId);
                         MessageBox.Show("Tạo thành công!", "Đăng ký", MessageBoxButtons.OK);
                         LoadInformation();
                     }
@@ -64,7 +65,7 @@ namespace SaleManagementWinApp
                 }
                 else
                 {
-                    MessageBox.Show("Sai định dạng email!", "Đăng ký", MessageBoxButtons.OK);
+                    MessageBox.Show("Sai định dạng email hooặc số điện thoại của bạn đã tạo!", "Đăng ký", MessageBoxButtons.OK);
                 }
                 
             }else

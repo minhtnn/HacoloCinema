@@ -23,5 +23,7 @@ namespace Repositories.movieandorder
         void UpdateMovie(Movie movie);
 
         void UpdateStatusMovie(int movieId, bool? status);
+
+        int GetLargestId();
     }
 }

@@ -45,10 +45,11 @@ namespace HacoloCinema_Team2
 
                 dgvOrder.DataSource = null;
                 dgvOrder.DataSource = bindingSource;
-
-          
-
-            }
+            dgvOrder.Columns["Customer"].Visible = false;
+            dgvOrder.Columns["OrderDetailCombos"].Visible = false;
+            dgvOrder.Columns["Payment"].Visible = false;
+            dgvOrder.Columns["Tickets"].Visible = false;
+        }
 
             private void frmOrder_Load(object sender, EventArgs e)
             {

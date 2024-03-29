@@ -19,10 +19,12 @@ namespace HacoloCinema_Team2
         private IShowtimeRepository showtimeRepository = new ShowtimeRepository();
         private Movie currentMovie;
         private int movieId;
-        public frmDetailMovie(int movieId)
+        int customerId = 0;
+        public frmDetailMovie(int movieId, int customerId)
         {
             InitializeComponent();
             this.movieId = movieId;
+            this.customerId = customerId;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -42,8 +44,16 @@ namespace HacoloCinema_Team2
                     if (showtimeId.HasValue)
                     {
                         //neu la customer thi vo form nay
-                        frmBookTicketCustomer frmBookTicket = new frmBookTicketCustomer(showtimeId.Value);
-                        frmBookTicket.ShowDialog();
+                        if (customerId != 0)
+                        {
+                            frmBookTicketCustomer frmBookTicket = new frmBookTicketCustomer(showtimeId.Value, customerId);
+                            frmBookTicket.ShowDialog();
+                        }else
+                        {
+                            frmBookTicketStaff frm = new frmBookTicketStaff(showtimeId.Value);
+                            frm.ShowDialog();
+                        }
+                        
                         //neu la admin thi vo form nay
                         //frmBookTicketStaff
                     }

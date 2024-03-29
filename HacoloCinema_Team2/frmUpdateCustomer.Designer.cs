@@ -1,6 +1,6 @@
 ﻿namespace SaleManagementWinApp
 {
-    partial class frmRegister
+    partial class frmUpdateCustomer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,134 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnCancel = new Button();
+            btUpdate = new Button();
             txtCustomerPassword = new TextBox();
             txtCustomerEmail = new TextBox();
             txtCustomerName = new TextBox();
             lbCustomerPassword = new Label();
             lbCustomerEmail = new Label();
             lbCustomerName = new Label();
-            btCreate = new Button();
-            btnCancel = new Button();
-            lblPhoneNumber = new Label();
+            label1 = new Label();
             txtPhoneNumber = new TextBox();
             SuspendLayout();
             // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(323, 301);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(94, 29);
+            btnCancel.TabIndex = 57;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // btUpdate
+            // 
+            btUpdate.Location = new Point(211, 301);
+            btUpdate.Name = "btUpdate";
+            btUpdate.Size = new Size(94, 29);
+            btUpdate.TabIndex = 56;
+            btUpdate.Text = "Update";
+            btUpdate.UseVisualStyleBackColor = true;
+            btUpdate.Click += btUpdate_Click;
+            // 
             // txtCustomerPassword
             // 
-            txtCustomerPassword.Location = new Point(155, 141);
+            txtCustomerPassword.Enabled = false;
+            txtCustomerPassword.Location = new Point(160, 186);
             txtCustomerPassword.Name = "txtCustomerPassword";
-            txtCustomerPassword.Size = new Size(262, 27);
-            txtCustomerPassword.TabIndex = 32;
+            txtCustomerPassword.Size = new Size(257, 27);
+            txtCustomerPassword.TabIndex = 50;
             txtCustomerPassword.UseSystemPasswordChar = true;
             // 
             // txtCustomerEmail
             // 
-            txtCustomerEmail.Location = new Point(155, 85);
+            txtCustomerEmail.Location = new Point(160, 130);
             txtCustomerEmail.Name = "txtCustomerEmail";
-            txtCustomerEmail.Size = new Size(262, 27);
-            txtCustomerEmail.TabIndex = 31;
+            txtCustomerEmail.Size = new Size(257, 27);
+            txtCustomerEmail.TabIndex = 49;
             // 
             // txtCustomerName
             // 
-            txtCustomerName.Location = new Point(155, 30);
+            txtCustomerName.Location = new Point(160, 75);
             txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.Size = new Size(262, 27);
-            txtCustomerName.TabIndex = 30;
+            txtCustomerName.Size = new Size(257, 27);
+            txtCustomerName.TabIndex = 48;
             // 
             // lbCustomerPassword
             // 
             lbCustomerPassword.AutoSize = true;
-            lbCustomerPassword.Location = new Point(35, 144);
+            lbCustomerPassword.Location = new Point(40, 189);
             lbCustomerPassword.Name = "lbCustomerPassword";
-            lbCustomerPassword.Size = new Size(70, 20);
-            lbCustomerPassword.TabIndex = 25;
-            lbCustomerPassword.Text = "Mật khẩu";
+            lbCustomerPassword.Size = new Size(73, 20);
+            lbCustomerPassword.TabIndex = 43;
+            lbCustomerPassword.Text = "Password:";
             // 
             // lbCustomerEmail
             // 
             lbCustomerEmail.AutoSize = true;
-            lbCustomerEmail.Location = new Point(35, 88);
+            lbCustomerEmail.Location = new Point(40, 133);
             lbCustomerEmail.Name = "lbCustomerEmail";
             lbCustomerEmail.Size = new Size(49, 20);
-            lbCustomerEmail.TabIndex = 24;
+            lbCustomerEmail.TabIndex = 42;
             lbCustomerEmail.Text = "Email:";
             // 
             // lbCustomerName
             // 
             lbCustomerName.AutoSize = true;
-            lbCustomerName.Location = new Point(35, 33);
+            lbCustomerName.Location = new Point(40, 78);
             lbCustomerName.Name = "lbCustomerName";
-            lbCustomerName.Size = new Size(73, 20);
-            lbCustomerName.TabIndex = 23;
-            lbCustomerName.Text = "Họ và tên";
+            lbCustomerName.Size = new Size(116, 20);
+            lbCustomerName.TabIndex = 41;
+            lbCustomerName.Text = "Customer name:";
             // 
-            // btCreate
+            // label1
             // 
-            btCreate.Location = new Point(155, 258);
-            btCreate.Name = "btCreate";
-            btCreate.Size = new Size(150, 29);
-            btCreate.TabIndex = 38;
-            btCreate.Text = "Tạo tài khoản";
-            btCreate.UseVisualStyleBackColor = true;
-            btCreate.Click += btCreate_Click;
-            // 
-            // btnCancel
-            // 
-            btnCancel.Location = new Point(323, 258);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(94, 29);
-            btnCancel.TabIndex = 39;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
-            // 
-            // lblPhoneNumber
-            // 
-            lblPhoneNumber.AutoSize = true;
-            lblPhoneNumber.Location = new Point(35, 204);
-            lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(97, 20);
-            lblPhoneNumber.TabIndex = 40;
-            lblPhoneNumber.Text = "Số điện thoại";
+            label1.AutoSize = true;
+            label1.Location = new Point(40, 250);
+            label1.Name = "label1";
+            label1.Size = new Size(105, 20);
+            label1.TabIndex = 58;
+            label1.Text = "Phone number";
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.Location = new Point(155, 201);
+            txtPhoneNumber.Enabled = false;
+            txtPhoneNumber.Location = new Point(160, 247);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(262, 27);
-            txtPhoneNumber.TabIndex = 41;
+            txtPhoneNumber.Size = new Size(257, 27);
+            txtPhoneNumber.TabIndex = 59;
             // 
-            // frmRegister
+            // frmUpdateCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(448, 300);
+            ClientSize = new Size(627, 366);
             Controls.Add(txtPhoneNumber);
-            Controls.Add(lblPhoneNumber);
+            Controls.Add(label1);
             Controls.Add(btnCancel);
-            Controls.Add(btCreate);
+            Controls.Add(btUpdate);
             Controls.Add(txtCustomerPassword);
             Controls.Add(txtCustomerEmail);
             Controls.Add(txtCustomerName);
             Controls.Add(lbCustomerPassword);
             Controls.Add(lbCustomerEmail);
             Controls.Add(lbCustomerName);
-            Name = "frmRegister";
-            Text = "Add new customer";
+            Name = "frmUpdateCustomer";
+            Text = "Update customer";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private Button btnCancel;
+        private Button btUpdate;
         private TextBox txtCustomerPassword;
         private TextBox txtCustomerEmail;
         private TextBox txtCustomerName;
         private Label lbCustomerPassword;
         private Label lbCustomerEmail;
         private Label lbCustomerName;
-        private Button btCreate;
-        private Button btnCancel;
-        private Label lblPhoneNumber;
+        private Label label1;
         private TextBox txtPhoneNumber;
     }
 }

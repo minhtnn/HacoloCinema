@@ -16,6 +16,8 @@ namespace Repositories.movieandorder
         public bool ExistById(int id) => MoviesDAO.Instance.ExistById(id);
         public List<Movie> GetAll() => MoviesDAO.Instance.GetMoviesList();
 
+        public int GetLargestId() => MoviesDAO.Instance.GetLargestId();
+
         public Movie GetMovieById(int id) => MoviesDAO.Instance.GetGenreById(id);
 
         public void SaveMovie(Movie m) => MoviesDAO.Instance.SaveMovie(m);

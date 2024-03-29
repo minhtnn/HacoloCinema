@@ -12,5 +12,6 @@ namespace Repositories.BookTicket
         public Wallet GetWalletByCustomerId(int customerId);
         public void UpdateWallet(Wallet wallet);
         public void SaveWalletTransaction(WalletTransaction walletTransaction);
+        public int GetLargestId();
     }
 }

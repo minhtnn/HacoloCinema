@@ -64,6 +64,7 @@ namespace HacoloCinema_Team2
                 txtPhoneNumber.DataBindings.Add("Text", source, "PhoneNumber");
                 dgvCustomerList.DataSource = null;
                 dgvCustomerList.DataSource = customerList;
+                dgvCustomerList.Columns["Password"].Visible = false;
                 dgvCustomerList.Columns["Orders"].Visible = false;
                 dgvCustomerList.Columns["Wallets"].Visible = false;
             }

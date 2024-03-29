@@ -10,6 +10,8 @@ namespace Repositories.BookTicket
 {
     public class WalletRepository : IWalletRepository
     {
+        public int GetLargestId() => WalletDAO.GetLargestId();
+
         public Wallet GetWalletByCustomerId(int customerId) => WalletDAO.GetWalletByCustomerId(customerId);
 
         public void SaveWalletTransaction(WalletTransaction walletTransaction) => WalletDAO.SaveWalletTransaction(walletTransaction);

@@ -21,15 +21,17 @@ namespace HacoloCinema_Team2
         decimal comboPrice = 0;
         decimal totalPrice = 0;
         int showtimeId;
+        int customerId;
         decimal price;
         IShowtimeRepository showtimeRepository = new ShowtimeRepository();
         IComboRepository comboRepository = new ComboRepository();
         ITicketRepository ticketRepository = new TicketRepository();
         IOrderRepository orderRepository = new OrderRepository();
-        public frmBookTicketCustomer(int showtimeId)
+        public frmBookTicketCustomer(int showtimeId, int customerId)
         {
             InitializeComponent();
             this.showtimeId = showtimeId;
+            this.customerId = customerId;
         }
         private void frmBookTicket_Load(object sender, EventArgs e)
         {
@@ -197,7 +199,7 @@ namespace HacoloCinema_Team2
                 Order newOrder = new Order
                 {
                     OrderId = orderRepository.GetMaxOrderId() + 1, // GetMaxOrderId lấy ID đơn hàng lớn nhất và cộng thêm 1
-                    CustomerId = 3,
+                    CustomerId = customerId,
                     OrderDate = DateTime.Now,
                     // ShippedDate để null vì chưa giao
                     // Total để null hoặc tính toán tổng giá trị đơn hàng nếu cần
@@ -246,7 +248,7 @@ namespace HacoloCinema_Team2
 
                 // Lưu đơn đặt hàng vào cơ sở dữ liệu
 
-                frmCheckoutCustomer frmCheckout = new frmCheckoutCustomer(newOrder.OrderId);
+                frmCheckoutCustomer frmCheckout = new frmCheckoutCustomer(newOrder.OrderId, customerId);
                 frmCheckout.ShowDialog();
                 selectedChairs.Clear();
                 LoadChair();

@@ -9,5 +9,6 @@ namespace Repositories.mintnn
     public interface IWalletRepository
     {
         bool HaveWallet(int customerId);
+        bool CreateWallet(int customerId);
     }
 }

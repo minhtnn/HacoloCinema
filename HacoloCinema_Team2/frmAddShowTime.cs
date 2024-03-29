@@ -102,7 +102,8 @@ namespace HacoloCinema_Team2
         }
         public bool IsEmpty()
         {
-            return (txtShowtimeId.Text.Trim().Equals("") ||
+            return (txtShowtimeId.Text.Trim().Equals("") || (cmbMovie.Text.Trim().Equals("Select movie"))||
+                (cmbPricingShedule.Text.Trim().Equals("Select pricing schedule")) || cmbTheater.Text.Trim().Equals("Select theater") ||
                 dtpDate.Text.Trim().Equals("")|| (cmbPricingShedule.SelectedIndex == -1) ||
                 txtTime.Text.Trim().Equals("") || (cmbMovie.SelectedIndex == -1) || (cmbTheater.SelectedIndex == -1));
         }
@@ -121,7 +122,7 @@ namespace HacoloCinema_Team2
                     PricingScheduleId = pricingschedule.PricingScheduleId,
                     ShowDate = DateOnly.FromDateTime(dtpDate.Value),
                     StartTime = TimeOnly.Parse(txtTime.Text),
-                    ShowtimeStatus = false,
+                    ShowtimeStatus = true,
                 };
                 var check = _showtimeRepository.IsShowTimeIntersection(showtime);
                 if (!check)
@@ -182,7 +183,12 @@ namespace HacoloCinema_Team2
                 else
                 {
                      MessageBox.Show("Chọn ngày ở quá khứ", "Thêm giờ chiếu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtpDate.Value = DateTime.Now.AddDays(1);
                 }
+            }
+            else
+            {
+                dtpDate.CustomFormat = "";
             }
         }
     }

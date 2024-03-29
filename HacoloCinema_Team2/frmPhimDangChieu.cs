@@ -15,12 +15,14 @@ namespace HacoloCinema_Team2
 {
     public partial class frmPhimDangChieu : Form
     {
+        int customerId = 0;
         IMovieRepository movieRepo = new MovieRepository();
-        public frmPhimDangChieu()
+        public frmPhimDangChieu(int customerId)
         {
             InitializeComponent();
             AddControlsToPanel();
             LoadMovie();
+            this.customerId = customerId;
         }
         private void AddControlsToPanel()
         {
@@ -75,7 +77,7 @@ namespace HacoloCinema_Team2
                             {
 
                                 int movieId = movie.MovieId;
-                                OpenMovieDetailsForm(movieId);
+                                OpenMovieDetailsForm(movieId, customerId);
                             };
 
                         }
@@ -90,9 +92,9 @@ namespace HacoloCinema_Team2
 
 
         }
-        private void OpenMovieDetailsForm(int movieId)
+        private void OpenMovieDetailsForm(int movieId, int customerId)
         {
-            frmDetailMovie frmDetailMovie = new frmDetailMovie(movieId);
+            frmDetailMovie frmDetailMovie = new frmDetailMovie(movieId, customerId);
             frmDetailMovie.ShowDialog();
         }
 

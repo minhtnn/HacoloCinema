@@ -31,6 +31,9 @@ namespace Repositories.mintnn
         public int GetNewCustomerId()
             => CustomerDAO.Instance.GetNewCustomerId();
 
+        public bool IsPhoneExist(string phone)
+            => CustomerDAO.Instance.IsPhoneExist(phone);
+
         public bool UpdateCustomer(Customer newCustomer)
             => CustomerDAO.Instance.UpdateCustomer(newCustomer);
     }

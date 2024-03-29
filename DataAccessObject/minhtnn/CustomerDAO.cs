@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -64,6 +65,18 @@ namespace DataAccessObject.minhtnn
             using var db = new HacoloCinemaContext();
             return db.Customers.OrderBy(f => f.CustomerName).ToList();
         }
+        public bool IsPhoneExist(string phone)
+        {
+            using var db = new HacoloCinemaContext();
+            var customers = db.Customers.SingleOrDefault(f => f.PhoneNumber.Equals(phone));
+            return customers != null;
+        }
+        public bool IsEmailExist(string email)
+        {
+            using var db = new HacoloCinemaContext();
+            var customers = db.Customers.SingleOrDefault(f => f.Email.Equals(email));
+            return customers != null;
+        }
         public bool AddCustomer(Customer customer)
         {
             using var db = new HacoloCinemaContext();
@@ -78,7 +91,7 @@ namespace DataAccessObject.minhtnn
             {
                 customer = newCustomer;
                 using var db = new HacoloCinemaContext();
-                db.Customers.Add(customer);
+                db.Customers.Update(customer);
                 var change = db.SaveChanges();
                 return change > 0;
             }

@@ -102,6 +102,12 @@ namespace DataAccessObject.movieandorder
                 db.SaveChanges();
             }
         }
+        public int GetLargestId()
+        {
+            using var db = new HacoloCinemaContext();
+            int largestId = db.Movies.Max(wt => (int?)wt.MovieId) ?? 0;
+            return largestId;
+        }
 
 
 

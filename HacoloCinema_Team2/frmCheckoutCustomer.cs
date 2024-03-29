@@ -17,17 +17,19 @@ namespace HacoloCinema_Team2
     public partial class frmCheckoutCustomer : Form
     {
         int orderId;
+        int customerId;
         decimal? balanceWallet = 0;
         decimal? totalPrice = 0;
         IOrderRepository orderRepository = new OrderRepository();
         ITicketRepository ticketRepository = new TicketRepository();
         IOrderDetailComboRepository orderDetailComboRepository = new OrderDetailComboRepository();
         IWalletRepository walletRepository = new WalletRepository();
-        public frmCheckoutCustomer(int orderId)
+        public frmCheckoutCustomer(int orderId, int customerId)
         {
             InitializeComponent();
             InitializeCountdownTimer();
             this.orderId = orderId;
+            this.customerId = customerId;
         }
         private void InitializeCountdownTimer()
         {
@@ -65,7 +67,7 @@ namespace HacoloCinema_Team2
             
             lblTotalPrice.Text = totalPrice?.ToString("N2") + " VND";
             
-            Wallet wallet = walletRepository.GetWalletByCustomerId(3);
+            Wallet wallet = walletRepository.GetWalletByCustomerId(customerId);
             balanceWallet = wallet.WalletBalance;
             lblBalanceAccount.Text = "Số tiền trong ví: " + wallet.WalletBalance?.ToString("N2") + " VNĐ";
         }
@@ -125,10 +127,11 @@ namespace HacoloCinema_Team2
                 DialogResult d = MessageBox.Show("Bạn có chắc chắn muốn thanh toán hóa đơn", "Thanh toán đơn", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (d == DialogResult.OK)
                 {
-                    Wallet wallet = walletRepository.GetWalletByCustomerId(3);
+                    Wallet wallet = walletRepository.GetWalletByCustomerId(customerId);
                     wallet.WalletBalance = balanceWallet - totalPrice;
                     WalletTransaction walletTransaction = new WalletTransaction()
                     {
+                        WalletTransactionId = walletRepository.GetLargestId() + 1,
                         WalletId = wallet.WalletId,
                         TransactionAmount = -totalPrice,
                         TransactionDate = DateTime.Now

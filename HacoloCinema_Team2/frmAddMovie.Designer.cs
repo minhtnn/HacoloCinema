@@ -45,8 +45,6 @@
             label3 = new Label();
             lblImage = new Label();
             btnImage = new Button();
-            lblMovieId = new Label();
-            txtMovieId = new TextBox();
             dtpReleaseDay = new DateTimePicker();
             lblDuration = new Label();
             txtDuration = new TextBox();
@@ -202,22 +200,6 @@
             btnImage.UseVisualStyleBackColor = true;
             btnImage.Click += btnImage_Click;
             // 
-            // lblMovieId
-            // 
-            lblMovieId.AutoSize = true;
-            lblMovieId.Location = new Point(72, 97);
-            lblMovieId.Name = "lblMovieId";
-            lblMovieId.Size = new Size(24, 20);
-            lblMovieId.TabIndex = 21;
-            lblMovieId.Text = "ID";
-            // 
-            // txtMovieId
-            // 
-            txtMovieId.Location = new Point(205, 94);
-            txtMovieId.Name = "txtMovieId";
-            txtMovieId.Size = new Size(151, 27);
-            txtMovieId.TabIndex = 22;
-            // 
             // dtpReleaseDay
             // 
             dtpReleaseDay.Location = new Point(202, 203);
@@ -268,8 +250,6 @@
             Controls.Add(txtDuration);
             Controls.Add(lblDuration);
             Controls.Add(dtpReleaseDay);
-            Controls.Add(txtMovieId);
-            Controls.Add(lblMovieId);
             Controls.Add(btnImage);
             Controls.Add(lblImage);
             Controls.Add(label3);

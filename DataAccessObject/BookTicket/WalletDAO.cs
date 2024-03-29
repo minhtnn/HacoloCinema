@@ -56,5 +56,11 @@ namespace DataAccessObject.BookTicket
                 throw new Exception(ex.Message);
             }
         }
+        public static int GetLargestId()
+        {
+            using var db = new HacoloCinemaContext();
+            int largestId = db.WalletTransactions.Max(wt => (int?)wt.WalletTransactionId) ?? 0;
+            return largestId;
+        }
     }
 }

@@ -17,5 +17,6 @@ namespace Repositories.mintnn
         bool AddCustomer(Customer customer);
         bool UpdateCustomer(Customer newCustomer);
         Admin GetAdmin();
+        bool IsPhoneExist(string phone);
     }
 }

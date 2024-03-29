@@ -54,8 +54,6 @@ namespace HacoloCinema_Team2
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmWallet frmWallet = new frmWallet(id);
-            frmWallet.ShowDialog(); 
             this.Close();
         }
     }

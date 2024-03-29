@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,11 +41,16 @@ namespace SaleManagementWinApp
                 else if (customer == null)
                 {
                     var admin = _memberRepository.GetAdmin();
-                    if (admin != null)
+                    if (txtPhone.Text.Trim().Equals(admin.Email) && txtPassword.Text.Trim().Equals(admin.Password))
                     {
                         frmMain.Admin = admin;
                         MessageBox.Show("Chào mừng admin", "Login", MessageBoxButtons.OK);
                         this.Hide();
+                        frmMain.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai email hoặc mật khẩu!", "Login", MessageBoxButtons.OK);
                     }
                 }
                 else

@@ -122,3 +122,6 @@ C:\Users\N.Minh- ADMIN\Pictures\HacoloCinemaWinForm\HacoloCinemaWinForm\HacoloCi
 C:\Users\N.Minh- ADMIN\Pictures\HacoloCinemaWinForm\HacoloCinemaWinForm\HacoloCinema_Team2\obj\Debug\net8.0-windows\HacoloCinema_Team2.frmWalletTransaction.resources
 C:\Users\N.Minh- ADMIN\Pictures\HacoloCinemaWinForm\HacoloCinemaWinForm\HacoloCinema_Team2\obj\Debug\net8.0-windows\SaleManagementWinApp.frmLogin.resources
 C:\Users\N.Minh- ADMIN\Pictures\HacoloCinemaWinForm\HacoloCinemaWinForm\HacoloCinema_Team2\obj\Debug\net8.0-windows\HacoloCinema_Team2.frmMain.resources
+C:\Users\N.Minh- ADMIN\Pictures\HacoloCinemaWinForm\HacoloCinemaWinForm\HacoloCinema_Team2\obj\Debug\net8.0-windows\HacoloCinema_Team2.frmChangePassword.resources
+C:\Users\N.Minh- ADMIN\Pictures\HacoloCinemaWinForm\HacoloCinemaWinForm\HacoloCinema_Team2\obj\Debug\net8.0-windows\SaleManagementWinApp.frmUpdateCustomer.resources
+C:\Users\N.Minh- ADMIN\Pictures\HacoloCinemaWinForm\HacoloCinemaWinForm\HacoloCinema_Team2\bin\Debug\net8.0-windows\appsettings.json

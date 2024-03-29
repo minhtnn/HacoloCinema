@@ -46,40 +46,48 @@ namespace HacoloCinema_Team2
                 var wallet = walletRepo.GetWalletByCustomerId(id);
                 if (wallet != null)
                 {
-                    if (btnAction.Text == "Nạp")
+                    decimal moneyToAdd = decimal.Parse(txtMoney.Text);
+                    if (moneyToAdd > 0)
                     {
-                        wallet.WalletBalance += money;
-                        walletRepo.UpdateWaller(wallet);
-                        var walletTransaction = new WalletTransaction()
+                        if (btnAction.Text == "Nạp")
                         {
-                            WalletTransactionId = walletTransactionRepo.GetLargeId() + 1,
-                            TransactionAmount = money,
-                            TransactionDate = DateTime.Now,
-                            WalletId = id
-                        };
-                        walletTransactionRepo.CreateWalletTransaction(walletTransaction);
-                        MessageBox.Show("Nạp Thành Công", "Hacolo Cinema");
-                    }
-                    else if (btnAction.Text == "Rút")
-                    {
-                        if (wallet.WalletBalance < money)
-                        {
-                            MessageBox.Show("Số dư của bạn không đủ để rút", "Error");
-                        }
-                        else
-                        {
-                            wallet.WalletBalance -= money;
+                            wallet.WalletBalance += money;
                             walletRepo.UpdateWaller(wallet);
                             var walletTransaction = new WalletTransaction()
                             {
                                 WalletTransactionId = walletTransactionRepo.GetLargeId() + 1,
-                                TransactionAmount = -money,
+                                TransactionAmount = money,
                                 TransactionDate = DateTime.Now,
                                 WalletId = id
                             };
                             walletTransactionRepo.CreateWalletTransaction(walletTransaction);
-                            MessageBox.Show("Rút Thành Công", "Hacolo Cinema");
+                            MessageBox.Show("Nạp Thành Công", "Hacolo Cinema");
                         }
+                        else if (btnAction.Text == "Rút")
+                        {
+                            if (wallet.WalletBalance < money)
+                            {
+                                MessageBox.Show("Số dư của bạn không đủ để rút", "Error");
+                            }
+                            else
+                            {
+                                wallet.WalletBalance -= money;
+                                walletRepo.UpdateWaller(wallet);
+                                var walletTransaction = new WalletTransaction()
+                                {
+                                    WalletTransactionId = walletTransactionRepo.GetLargeId() + 1,
+                                    TransactionAmount = -money,
+                                    TransactionDate = DateTime.Now,
+                                    WalletId = id
+                                };
+                                walletTransactionRepo.CreateWalletTransaction(walletTransaction);
+                                MessageBox.Show("Rút Thành Công", "Hacolo Cinema");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Số tiền không hợp lệ", "Lỗi");
                     }
 
 

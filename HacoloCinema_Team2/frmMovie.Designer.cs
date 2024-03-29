@@ -47,7 +47,6 @@
             ptbImage = new PictureBox();
             lblReleaseDay = new Label();
             dtpReleaseDay = new DateTimePicker();
-            btnDelete = new Button();
             btnBack = new Button();
             btnAdd = new Button();
             lbxGenre = new ListBox();
@@ -216,21 +215,11 @@
             dtpReleaseDay.Size = new Size(250, 27);
             dtpReleaseDay.TabIndex = 20;
             // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(766, 471);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
-            btnDelete.TabIndex = 22;
-            btnDelete.Text = "Xoá phim";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
-            // 
             // btnBack
             // 
-            btnBack.Location = new Point(909, 473);
+            btnBack.Location = new Point(839, 473);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(94, 29);
+            btnBack.Size = new Size(176, 29);
             btnBack.TabIndex = 23;
             btnBack.Text = "Quay Lại";
             btnBack.UseVisualStyleBackColor = true;
@@ -238,9 +227,9 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(652, 471);
+            btnAdd.Location = new Point(571, 473);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(94, 29);
+            btnAdd.Size = new Size(191, 29);
             btnAdd.TabIndex = 24;
             btnAdd.Text = "Thêm Phim";
             btnAdd.UseVisualStyleBackColor = true;
@@ -298,7 +287,6 @@
             Controls.Add(lbxGenre);
             Controls.Add(btnAdd);
             Controls.Add(btnBack);
-            Controls.Add(btnDelete);
             Controls.Add(dtpReleaseDay);
             Controls.Add(lblReleaseDay);
             Controls.Add(ptbImage);
@@ -349,7 +337,6 @@
         private PictureBox ptbImage;
         private Label lblReleaseDay;
         private DateTimePicker dtpReleaseDay;
-        private Button btnDelete;
         private Button btnBack;
         private Button btnAdd;
         private ListBox lbxGenre;
